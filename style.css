@@ -1,0 +1,382 @@
+:root {
+    --gold: #d4af37;
+    --dark-oak: #2c1b0e;
+    --parchment: #f4e4bc;
+    --crimson: #7e1212;
+    --deep-gray: #1a1a1a;
+}
+
+body {
+    background-color: var(--deep-gray);
+    color: var(--parchment);
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    border-bottom: 3px double var(--gold);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+h1 { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; margin: 0; }
+
+.gold-pouch { font-size: 1.2rem; color: var(--gold); margin-top: 10px; }
+
+/* Layout Grid */
+.shop-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start; /* Prevents cart from stretching to full height */
+}
+
+.inventory-section { flex: 3; }
+
+#shop-floor {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Item Cards */
+.item-card {
+    background: #252525;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.item-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* --- THE STICKY CART LOGIC --- */
+#cart-section {
+    flex: 1;
+    background: #1e1e1e;
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    position: sticky; /* Pins the cart as you scroll the shop */
+    top: 20px;
+    max-height: 80vh; /* Keeps cart on screen */
+    display: flex;
+    flex-direction: column;
+}
+
+#cart-list {
+    overflow-y: auto; /* Makes items scrollable */
+    padding: 0 15px;
+    flex-grow: 1;
+}
+
+.cart-footer {
+    padding: 15px;
+    background: #252525;
+    border-top: 2px solid var(--gold);
+    border-radius: 0 0 10px 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+    font-size: 0.9rem;
+}
+
+/* Buttons and Typography */
+.total-text { font-size: 1.2rem; color: var(--gold); font-weight: bold; margin-bottom: 10px; }
+
+button {
+    background: var(--gold);
+    color: var(--dark-oak);
+    border: none;
+    padding: 8px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* This targets the "Purchase" button */
+.btn-checkout {
+    padding: 12px 25px;   /* Top/Bottom, Left/Right */
+    width: 100%;          /* Makes it take up the full width of the cart footer */
+    font-size: 1.2rem;    /* Makes the text stand out */
+    margin-bottom: 8px;   /* Adds space between this and the Empty button */
+}
+
+/* This targets the "Empty" button */
+.btn-clear {
+    padding: 12px 25px;    /* Smaller padding if you want it to look less important */
+    width: 100%;          /* Also makes it full width */
+    font-size: 0.9rem;    /* Smaller text than the Purchase button */
+}
+
+button:disabled { background: #444; color: #777; }
+
+.btn-clear { background: var(--crimson); color: white; }
+
+.section-title { border-left: 4px solid var(--gold); padding-left: 10px; margin-bottom: 20px; }
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-sticky-wrapper {
+    position: sticky;       /* This pins the element */
+    top: 0;                /* Sticks to the very top of the scroll area */
+    z-index: 100;          /* Keeps it layered above the item cards */
+    background-color: var(--deep-gray); /* Important: Match background so items don't show through */
+    padding: 15px 0;       /* Adds some breathing room */
+    border-bottom: 2px solid var(--gold); /* Optional: visual separator */
+}
+
+#shop-search {
+    width: 100%;
+    padding: 12px;
+    background: #252525;
+    border: 1px solid var(--gold);
+    color: var(--parchment);
+    box-sizing: border-box; /* Ensures padding doesn't break the width */
+}
+
+/* Make the card the reference point for the description */
+.item-card {
+    position: relative;
+    overflow: hidden; /* Clips the description so it stays inside the card */
+}
+
+/* Hide the description initially */
+.item-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(44, 27, 14, 0.95); /* Dark Oak color with transparency */
+    color: var(--parchment);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+    font-style: italic;
+    
+    /* Animation: Slides up from the bottom */
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    pointer-events: none; /* Allows clicks to go "through" to buttons if needed */
+}
+
+/* Show the description on hover */
+.item-card:hover .item-description {
+    transform: translateY(0);
+}
+
+/* Ensure the button stays on top so you can still click it */
+.item-card button {
+    position: relative;
+    z-index: 2;
+}
+
+footer {
+    margin-top: 50px;
+    padding: 30px 20px;
+    background-color: #111; /* Slightly darker than the body */
+    border-top: 3px double var(--gold);
+    text-align: center;
+    color: var(--parchment);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gold-text {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer small {
+    opacity: 0.6;
+    font-style: italic;
+}
+
+/* 1. Set the body to fill the whole screen height */
+body {
+    background-color: var(--deep-gray);
+    color: var(--parchment);
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0; /* Changed to 0 to let footer span full width */
+    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* This is the key: 100% of the Viewport Height */
+}
+
+/* 2. Wrap your content in a padding container if needed, 
+   but make sure the main container grows */
+main.shop-container {
+    flex: 1; /* This forces the shop area to expand and push the footer down */
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* 3. The Footer */
+footer {
+    background-color: #111;
+    border-top: 3px double var(--gold);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.order-card {
+    background: #2a2a2a;
+    border-left: 3px solid var(--gold);
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    border-radius: 0 5px 5px 0;
+}
+
+.status-tag {
+    display: inline-block;
+    padding: 2px 6px;
+    background: var(--dark-oak);
+    color: var(--gold);
+    border-radius: 3px;
+    font-size: 0.7rem;
+    margin-top: 5px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+/* LIGHT MODE COLORS */
+body.light-mode {
+    --deep-gray: #f4f4f4;    /* Light background */
+    --parchment: #2c1b0e;    /* Dark text */
+    --dark-oak: #f4e4bc;     /* Light parchment for buttons */
+}
+
+body.light-mode .item-card, 
+body.light-mode #cart-section,
+body.light-mode #shop-search {
+    background: #ffffff;
+    border-color: #ccc;
+    color: #333;
+}
+
+body.light-mode .search-sticky-wrapper {
+    background-color: #f4f4f4;
+}
+
+/* THE TOGGLE STYLING */
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    width: 50px;
+}
+
+.theme-switch input { display:none; }
+
+.slider {
+    background-color: #444;
+    bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0;
+    transition: .4s; border-radius: 34px;
+}
+
+.slider:before {
+    background-color: var(--gold);
+    bottom: 4px; content: ""; height: 16px; left: 4px; position: absolute;
+    transition: .4s; width: 16px; border-radius: 50%;
+}
+
+input:checked + .slider { background-color: var(--gold); }
+input:checked + .slider:before { transform: translateX(26px); background-color: white; }
+
+/* LIGHT MODE COLORS - UPDATED */
+body.light-mode {
+    --deep-gray: #f4f4f4;    /* Light background */
+    --parchment: #2c1b0e;    /* Dark text */
+    --dark-oak: #f4e4bc;     /* Light parchment for buttons */
+}
+
+/* Update Item Cards, Search, and Cart Section */
+body.light-mode .item-card, 
+body.light-mode #cart-section,
+body.light-mode #shop-search,
+body.light-mode .cart-footer {
+    background: #ffffff;
+    border-color: #ccc;
+    color: #333;
+}
+
+/* Update Active Deliveries (Order Cards) */
+body.light-mode .order-card {
+    background: #e0e0e0;     /* Light gray for the order cards */
+    color: #333;             /* Dark text for the order info */
+    border-left: 3px solid var(--gold);
+}
+
+/* Update the Pouch (Cart List) and Text */
+body.light-mode .cart-item {
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+body.light-mode .section-title {
+    color: var(--dark-oak-text, #2c1b0e); /* Darker text for titles */
+}
+
+/* Fix for the Sticky Search wrapper background */
+body.light-mode .search-sticky-wrapper {
+    background-color: #f4f4f4;
+}
+
+/* Update Footer for Light Mode */
+body.light-mode footer {
+    background-color: #e0e0e0;
+    color: #333;
+}   
+
+/* Update the hover description text for Light Mode */
+body.light-mode .item-description {
+    background: rgba(244, 228, 188, 0.98); /* Light parchment-style overlay */
+    color: #2c1b0e;                        /* Dark oak/brown text */
+}
+
+body.light-mode .item-description p {
+    color: #2c1b0e;                        /* Ensures the paragraph text is dark */
+}

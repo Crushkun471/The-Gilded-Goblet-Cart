@@ -3,32 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Gilded Goblet | Frontend Shop</title>
+    <title>The Gilded Goblet | RPG Shop</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>The Gilded Goblet</h1>
-        <p>Your Gold: <span id="gold-display">0</span>G</p>
+        <div class="gold-pouch">
+            <span class="coin-icon">💰</span>
+            Your Gold: <span id="gold-display">0</span>G
+        </div>
+        <div class="theme-switch-wrapper">
+            <span class="mode-label">🌙 Night</span>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" onclick="toggleTheme()" />
+                <div class="slider round"></div>
+            </label>
+            <span class="mode-label">☀️ Day</span>
+        </div>
     </header>
 
-    <main>
-        <section>
-            <h2>Available Loot</h2>
-            <div id="shop-floor" style="display: flex; gap: 20px; flex-wrap: wrap;">
-                </div>
+    <main class="shop-container">
+        <section class="inventory-section">
+            <div class="search-sticky-wrapper">
+                <input type="text" id="shop-search" placeholder="Search gear..." oninput="renderShop()">
+            </div>
+            <h2 class="section-title">Available Loot</h2>
+            <div id="shop-floor"></div>
         </section>
-
-        <hr>
 
         <section id="cart-section">
-            <h2>Your Pouch</h2>
+            <hr style="border: 1px solid var(--gold); margin: 20px 0;">
+            <div id="order-tracking">
+                <h3 class="section-title" style="font-size: 1rem;">Active Deliveries</h3>
+                <div id="order-list">
+                    <p style="font-size: 0.8rem; opacity: 0.5;">No active shipments...</p>
+                </div>
+            </div>
+
+            <h2 class="section-title">Your Pouch</h2>
             <div id="cart-list">
                 </div>
-            <p><strong>Total Cost: </strong><span id="total-cost">0</span>G</p>
-            <button onclick="checkout()">Complete Purchase</button>
-            <button onclick="clearCart()">Empty Pouch</button>
+            
+            <div class="cart-footer">
+                <p class="total-text">Total: <span id="total-cost">0</span>G</p>
+                <div class="cart-actions">
+                    <button class="btn-checkout" onclick="checkout()">Purchase</button>
+                    <button class="btn-clear" onclick="clearCart()">Empty</button>
+                </div>
+            </div>
         </section>
     </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 The Gilded Goblet | <span class="gold-text">Adventurer's Choice Merchant</span></p>
+            <p><small>Safe travels, wanderer. May your gold stay heavy and your blade stay sharp.</small></p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
