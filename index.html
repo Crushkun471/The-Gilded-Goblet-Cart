@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gilded Goblet | Frontend Shop</title>
+</head>
+<body>
+    <header>
+        <h1>The Gilded Goblet</h1>
+        <p>Your Gold: <span id="gold-display">0</span>G</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Available Loot</h2>
+            <div id="shop-floor" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                </div>
+        </section>
+
+        <hr>
+
+        <section id="cart-section">
+            <h2>Your Pouch</h2>
+            <div id="cart-list">
+                </div>
+            <p><strong>Total Cost: </strong><span id="total-cost">0</span>G</p>
+            <button onclick="checkout()">Complete Purchase</button>
+            <button onclick="clearCart()">Empty Pouch</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
