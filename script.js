@@ -20,7 +20,7 @@ const inventory = [
     { id: 17, name: "FN SCAR", price: 330, stock: 5, category: "Weapon", image: "images/fn-scar.jpg", description: "Reliable, robust, and deadly at range." },
     { id: 18, name: "Steyr AUG", price: 365, stock: 5, category: "Weapon", image: "images/steyr-aug.jpg", description: "Austrian bullpup rifle with an integrated optic." },
     { id: 19, name: "HK416", price: 360, stock: 5, category: "Weapon", image: "images/hk416.jpg", description: "The elite's choice for a tactical carbine." },
-    { id: 20, name: "Barret", price: 900, stock: 5, category: "Weapon", image: "images/Barret.jpg", description: "Anti-material sniper rifle. Stops tanks." },
+    { id: 20, name: "Barret", price: 900, stock: 5, category: "Weapon", image: "images/barret.jpg", description: "Anti-material sniper rifle. Stops tanks." },
     { id: 21, name: "Dragunov SVD", price: 450, stock: 5, category: "Weapon", image: "images/DragunovSVD.jpg", description: "Classical Soviet semi-auto sniper rifle." },
     { id: 22, name: "M24", price: 690, stock: 5, category: "Weapon", image: "images/M24.jpg", description: "The legendary bolt-action sniper system." },
     { id: 23, name: "AWM", price: 660, stock: 5 , category: "Weapon", image: "images/AWM.jpg", description: "Arctic Warfare Magnum. Built for one-shot kills." },
