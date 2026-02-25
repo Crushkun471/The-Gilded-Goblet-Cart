@@ -10,29 +10,29 @@ Welcome to The Gilded Goblet, a premium merchant interface designed for weary ad
 
 🎮 How to Use
 1. Searching for Loot
-  Use the Sticky Search Bar at the top of the inventory. As you type, the "Available Loot" grid will update instantly.
+    Use the Sticky Search Bar at the top of the inventory. As you type, the "Available Loot" grid will update instantly.
 
-  Tip: Type "Armor" to see all defensive gear or "Scroll" for magical items.
+    Tip: Type "Armor" to see all defensive gear or "Scroll" for magical items.
 
 2. Inspecting Items
-  To view an item's description, simply hover your cursor over the item card. An overlay will slide up, revealing the lore and stats of that specific item.
+    To view an item's description, simply hover your cursor over the item card. An overlay will slide up, revealing the lore and stats of that specific item.
 
 3. Managing Your Pouch
-  Add Items: Click "Add to Pouch" on any available item.
+    Add Items: Click "Add to Pouch" on any available item.
 
-  Adjust Quantity: Inside "Your Pouch" (on the right sidebar), use the + and - buttons to change amounts.
+    Adjust Quantity: Inside "Your Pouch" (on the right sidebar), use the + and - buttons to change amounts.
 
-  Empty Pouch: Use the red Empty button to clear your current selection.
+    Empty Pouch: Use the red Empty button to clear your current selection.
 
 4. Completing a Purchase
-  Once satisfied, click the Purchase button.
+    Once satisfied, click the Purchase button.
 
-  If you have enough Gold, your balance will update, and a delivery will be created.
+    If you have enough Gold, your balance will update, and a delivery will be created.
 
-  If you are short on Gold, the merchant will politely (or not) decline your offer.
+    If you are short on Gold, the merchant will politely (or not) decline your offer.
 
 5. Tracking Deliveries
-  After a successful purchase, check the Active Deliveries section. You will see a unique Order ID and a status tag (e.g., 🛡️ Awaiting Caravan) indicating the progress of your shipment.
+    After a successful purchase, check the Active Deliveries section. You will see a unique Order ID and a status tag (e.g., 🛡️ Awaiting Caravan) indicating the progress of your shipment.
 
 
 🛠️ Technical Setup
