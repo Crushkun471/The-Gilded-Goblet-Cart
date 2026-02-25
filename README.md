@@ -1,4 +1,4 @@
-# The-Gilded-Goblet-Cart🍷 The Gilded Goblet | RPG Shop
+🍷 The Gilded Goblet | RPG Shop
 Welcome to The Gilded Goblet, a premium merchant interface designed for weary adventurers. Whether you are stocking up on mana potions or looking for modern-day firepower like an AK-47, this shop provides a seamless experience for managing your loot.
 
 ✨ Features
