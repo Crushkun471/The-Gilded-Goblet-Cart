@@ -49,7 +49,7 @@ const inventory = [
     { id: 46, name: "Light bulb", price: 100, stock: 5, category: "Consumable", image: "images/Light bulb.jpg", description: "Provides illumination in dark places." },
     { id: 47, name: "Bed", price: 260, stock: 5, category: "Consumable", image: "images/Bed.jpg", description: "Rest and recover your health." },
     { id: 48, name: "Water dispenser", price: 80, stock: 5, category: "Consumable", image: "images/Water dispenser.jpg", description: "Provides clean drinking water." },
-    { id: 49, name: "Dell laptop", price: 800, stock: 5, category: "Consumable", image: "images/Dell laptop.jpg", description: "A reliable laptop for your needs." },
+    { id: 49, name: "Dell laptop", price: 800, stock: 5, category: "Consumable", image: "images/DellLaptop.jpg", description: "A reliable laptop for your needs." },
     { id: 50, name: "DDR4 16gb", price: 800, stock: 5, category: "Consumable", image: "images/DDR4 16gb.jpg", description: "A reliable RAM for your needs." },
 ];
 
